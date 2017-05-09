@@ -1,0 +1,33 @@
+<h2>Log in</h2>
+
+<% if (errorMessage) { %>
+  <p class="error-message">
+    <%= errorMessage %>
+  </p>
+<% } %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 centered-form">
+      <form action="/login" method="post">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" name="email" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="password" class="form-control">
+        </div>
+
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+  <p>
+    Don't have an account?
+    <a href="/signup">
+      Create an account.
+    </a>
+  </p>
+</div>
