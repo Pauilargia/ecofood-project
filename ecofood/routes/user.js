@@ -4,6 +4,7 @@ const express = require('express');
 const router  = express.Router();
 
 const User = require('../models/user');
+const Product = require('../models/product');
 
 router.use((req, res, next) => {
   if (req.session.currentUser) {
@@ -14,7 +15,13 @@ router.use((req, res, next) => {
 });
 
 router.get('/profile', (req, res, next) => {
-  res.render('users/profile');
+  // res.render('users/profile');
+  Product
+    .find({"producer": req.session.currentUser._id})
+    .populate('producer')
+    .exec( (err, products) => {
+        res.render('users/profile', { products });
+    });
 });
 
 router.post('/producers', (req, res, next) => {
@@ -23,7 +30,7 @@ router.post('/producers', (req, res, next) => {
     isProducer: true
   };
 
-  User.findByIdAndUpdate(userId, producerInfo, (err, theUser) => {
+  User.findByIdAndUpdate(userId, producerInfo, {new: true}, (err, theUser) => {
     if (err) {
       next(err);
       return;

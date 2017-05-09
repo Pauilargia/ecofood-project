@@ -37,9 +37,13 @@ router.get('/products/single/:id', (req,res) =>{
 
 /* GET - EDIT PRODUCT */
 router.get('/products/:id/edit', (req,res, next) =>{
+
   const productId = req.params.id;
   Product.findById(productId, (err, product) => {
       if (err) { return next(err); }
+      if(product.producer!=req.session.currentUser._id){
+        res.redirect('/');
+      }
       res.render('products/edit', {product: product});
   });
 });
