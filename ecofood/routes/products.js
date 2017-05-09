@@ -2,7 +2,10 @@
 //Sergio
 const express = require('express');
 const router  = express.Router();
+const multer  = require('multer');
 const Product = require('../models/product');
+
+const upload = multer({ dest: 'images/' }); //COMPROBAR RUTA!!
 
 router.use((req, res, next) => {
   if (req.session.currentUser) {
@@ -67,10 +70,11 @@ router.get('/add', (req,res) => {
 });
 
 /* POST - CREATE A PRODUCT */
-router.post('/add', function(req, res, next) {
+router.post('/add', upload.single('photo'), function(req, res, next) {
   const productInfo = {
       name: req.body.name,
-      imageUrl: req.body.imageUrl,
+      imageUrl: req.file.imageUrl,
+      imageUrlName: req.file.imageUrlName,
       unit: req.body.unit,
       unitPrice: req.body.unitPrice,
       category: req.body.category,
@@ -96,7 +100,7 @@ router.get('/products/:id/delete', (req, res)=>{
   const productId = req.params.id;
   Product.findByIdAndRemove(productId,(err, product) => {
     res.redirect('/all');
-  })
+  });
 });
 
 module.exports = router;
