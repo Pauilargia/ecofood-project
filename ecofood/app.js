@@ -14,9 +14,10 @@ const passport     = require('passport');
 const session      = require('express-session');
 const MongoStore   = require('connect-mongo')(session);
 
-const productRoutes = require('./routes/products');
 const index = require('./routes/index');
 const authRoutes = require('./routes/authentication.js');
+const productRoutes = require('./routes/products');
+const userRoutes = require('./routes/user');
 
 // Connect with database
 mongoose.connect('mongodb://localhost/ecofood');
@@ -53,6 +54,7 @@ app.use(function (req, res, next) {
 app.use('/', index);
 app.use('/', authRoutes);
 app.use('/', productRoutes);
+app.use('/', userRoutes);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

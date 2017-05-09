@@ -1,0 +1,17 @@
+<h2> Your Profile </h2>
+
+<% if (currentUserInfo.isProducer) { %>
+  <h3> You are a producer </h3>
+
+  <p>
+    Your products:
+  </p>
+
+  <a href="/add">Add new product</a>
+<% } else { %>
+  <h3> Want to become a producer? </h3>
+
+  <form action="/producers" method="post">
+    <button> Click Here! </button>
+  </form>
+<% } %>
