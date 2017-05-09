@@ -14,6 +14,7 @@ router.use((req, res, next) => {
 });
 
 router.get('/profile', (req, res, next) => {
+  console.log(req.session.currentUser);
   res.render('users/profile');
 });
 
@@ -23,7 +24,7 @@ router.post('/producers', (req, res, next) => {
     isProducer: true
   };
 
-  User.findByIdAndUpdate(userId, producerInfo, (err, theUser) => {
+  User.findByIdAndUpdate(userId, producerInfo, {new: true}, (err, theUser) => {
     if (err) {
       next(err);
       return;
