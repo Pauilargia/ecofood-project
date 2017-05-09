@@ -1,0 +1,42 @@
+<form action="/products/<%= product._id %>/edit" method="POST">
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" value="<%= product.name %>">
+
+  <label for="image-url">Image URL</label>
+  <input type="text" name="imageUrl" id="imageUrl" value="<%= product.imageUrl %>">
+
+  <label for="unit">Unit</label>
+  <input type="String" name="unit" id="unit" value="<%= product.unit %>">
+
+  <label for="unitPrice">UnitPrice</label>
+  <input type="Number" name="unitPrice" id="unitPrice" value="<%= product.unitPrice %>">
+
+  <!-- <label for="category">Category</label>
+  <input type="String" name="category" id="category" value="<%= product.category %>"> -->
+
+  <label for="category">Category</label>
+  <select name="category" id="category">
+    <option value="Fruits">Fruits</option>
+    <option value="Vegetables">Vegetables</option>
+    <option value="Animal Products">Animal Products</option>
+  </select>
+
+
+
+  <label for="availableQty">AvailableQty</label>
+  <input type="Number" name="availableQty" id="availableQty" value="<%= product.availableQty %>">
+
+  <label for="deadline">Deadline</label>
+  <input type="Date" name="deadline" id="deadline" value="<%= product.deadline %>">
+
+  <label for="location">Location</label>
+  <input type="String" name="location" id="location" value="<%= product.location %>">
+
+  <label for="producer">Producer</label>
+  <input type="text" name="producer" id="producer" value="<%= product.producer %>">
+
+  <label for="description">Description</label>
+  <textarea type="text" name="description" id="description"><%= product.description %></textarea>
+
+  <button type="submit">Update Product</button>
+</form>
