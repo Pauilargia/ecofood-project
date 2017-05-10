@@ -20,6 +20,7 @@ router.get('/profile', (req, res, next) => {
     .find({"producer": req.session.currentUser._id})
     .populate('producer')
     .exec( (err, products) => {
+      console.log(products)
         res.render('users/profile', { products });
     });
 });

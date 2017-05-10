@@ -5,7 +5,7 @@ const router  = express.Router();
 const multer  = require('multer');
 const Product = require('../models/product');
 
-const upload = multer({ dest: 'images/' }); //COMPROBAR RUTA!!
+const upload = multer({ dest: './public/images/' }); //COMPROBAR RUTA!!
 
 router.use((req, res, next) => {
   if (req.session.currentUser) {
@@ -48,20 +48,22 @@ router.get('/products/:id/edit', (req,res, next) =>{
   });
 });
 /* POST - EDIT PRODUCT */
-router.post('/products/:id/edit', (req,res, next) =>{
+router.post('/products/:id/edit', upload.single('image'), (req,res, next) => {
   const productId = req.params.id;
+  console.log(req.file);
   const updates = {
       name: req.body.name,
-      imageUrl: req.body.imageUrl,
+      // imageUrl: "images/"+req.file.filename,
+      // imageUrlName: req.file.originalname,
       unit: req.body.unit,
       unitPrice: req.body.unitPrice,
       category: req.body.category,
       availableQty: req.body.availableQty,
       deadline: req.body.deadline,
       location: req.body.location,
-      // producer: req.body.producer,
       description: req.body.description
    };
+   console.log(updates);
    Product.findByIdAndUpdate(productId, updates, (err, product) => {
      if (err){ return next (err); }
      return res.redirect('/profile');
@@ -74,11 +76,11 @@ router.get('/add', (req,res) => {
 });
 
 /* POST - CREATE A PRODUCT */
-router.post('/add', upload.single('photo'), function(req, res, next) {
+router.post('/add', upload.single('image'), function(req, res, next) {
   const productInfo = {
       name: req.body.name,
-      imageUrl: req.file.imageUrl,
-      imageUrlName: req.file.imageUrlName,
+      imageUrl: "images/"+req.file.filename,
+      imageUrlName: req.file.originalname,
       unit: req.body.unit,
       unitPrice: req.body.unitPrice,
       category: req.body.category,
@@ -103,7 +105,7 @@ router.post('/add', upload.single('photo'), function(req, res, next) {
 router.get('/products/:id/delete', (req, res)=>{
   const productId = req.params.id;
   Product.findByIdAndRemove(productId,(err, product) => {
-    res.redirect('/all');
+    res.redirect('/profile');
   });
 });
 

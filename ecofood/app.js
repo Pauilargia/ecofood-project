@@ -13,6 +13,7 @@ const bcrypt       = require('bcryptjs');
 const passport     = require('passport');
 const session      = require('express-session');
 const MongoStore   = require('connect-mongo')(session);
+const multer       = require('multer');
 
 const index = require('./routes/index');
 const authRoutes = require('./routes/authentication.js');
@@ -42,6 +43,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules/')));
+//app.use(multer({ dest: "./uploads" }));
+
 
 // Configure passport authentication
 require('./config/authentication.js')(app);

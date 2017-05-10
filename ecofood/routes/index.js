@@ -12,6 +12,7 @@ router.get('/', (req, res, next) => {
     .find({})
     .populate('producer')
     .exec( (err, products) => {
+      console.log(products);
         res.render('index', { products });
     });
 });
