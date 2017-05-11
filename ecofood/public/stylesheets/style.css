@@ -1,11 +1,52 @@
+
+
 body {
-  padding: 50px;
+  padding: 20px;
+  padding-top: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url(../img/fondo.jpg);
+  background-repeat: repeat;
 }
 
 a {
   color: #00B7FF;
 }
+
+/*Barra de navegacion*/
+.navbar-inverse {
+  /*position: fixed;
+  width: auto;*/
+  background-color: #3c763d;
+  border-color: #00261C;
+  margin: 0px;
+  }
+
+.navbar-inverse .navbar-brand {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #fff;
+}
+
+.titiloJumbo{
+    margin: 0px;
+    color: #fff;
+}
+/*-------------------------------------*/
+
+.jumbotron {
+  height: 390px;
+  background-image: url(../img/cabcera.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.tamañoImg{
+  width: 100px;
+  height: 100px;
+}
+
 
 #single-prod-img {
   width: 90%;
@@ -13,4 +54,5 @@ a {
 
 #prod-info p {
   font-size: 1.3em;
+
 }

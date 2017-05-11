@@ -13,7 +13,7 @@
   <div class="product-row row">
       <% products.forEach((product) => { %>
         <div class="col-sm-3 home-product-box">
-          <img src="<%= product.imageUrl %>">
+          <img class = "tamañoImg" src="<%= product.imageUrl %>">
           <div class="product-info-wrapper">
             <a class="title" href="/products/single/<%= product._id %>">
               <strong><%= product.name %></strong>
