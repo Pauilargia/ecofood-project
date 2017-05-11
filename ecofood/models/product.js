@@ -13,7 +13,7 @@ const ProductSchema = new Schema ({
   availableQty: Number,
   deadline: Date,
   location: String,
-  producer: { type: Schema.Types.ObjectId, ref: 'User' },
+  producer: {type: Schema.Types.ObjectId, ref: 'User'},
   description: String
 });
 

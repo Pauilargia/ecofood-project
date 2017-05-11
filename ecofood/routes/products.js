@@ -78,7 +78,7 @@ router.get('/add', (req,res) => {
 router.post('/add', upload.single('image'), function(req, res, next) {
   const productInfo = {
       name: req.body.name,
-      imageUrl: "images/"+req.file.filename,
+      imageUrl: "/images/"+req.file.filename,
       imageUrlName: req.file.originalname,
       unit: req.body.unit,
       unitPrice: req.body.unitPrice,
