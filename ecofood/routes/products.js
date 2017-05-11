@@ -27,7 +27,7 @@ router.get('/all', function(req, res, next) {
 });
 
 /* GET - SINGLE PRODUCT */
-router.get('/products/single/:id', (req,res) =>{
+router.get('/products/single/:id', (req,res, next) =>{
   const productId = req.params.id;
   Product.findById(productId, (err, product) => {
     if (err) { return next(err); }
