@@ -52,15 +52,22 @@ router.get('/products/:id/edit', (req,res, next) =>{
 router.post('/products/:id/edit', upload.single('image'), (req,res, next) => {
   const productId = req.params.id;
   console.log(req.file);
-  const {name,unit,unitPrice,category,availableQty,deadline,description} = req.body;
+  // const {
+  //   name,
+  //   unit,
+  //   unitPrice,
+  //   category,
+  //   availableQty,
+  //   deadline,
+  //   description} = req.body;
   const upddates = {
-      name,
-      unit,
-      unitPrice,
-      category,
-      availableQty,
-      deadline,
-      description
+      name: req.body.name,
+      unit: req.body.unit,
+      unitPrice: req.body.unitPrice,
+      category: req.body.category,
+      availableQty: req.body.availableQty,
+      deadline: req.body.deadline,
+      description: req.body.description
    };
    console.log(updates);
    Product.findByIdAndUpdate(productId, updates, (err, product) => {

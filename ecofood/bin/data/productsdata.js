@@ -157,7 +157,7 @@ module.exports = [
   },
   {
     name: "Tomates",
-    imageUrl: "/images/tomates2",
+    imageUrl: "/images/tomates2.jpg",
     imageUrlName: "tomates2.jpg",
     unit: "kg",
     unitPrice: 1,
