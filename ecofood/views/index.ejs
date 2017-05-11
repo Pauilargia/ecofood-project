@@ -65,7 +65,12 @@
 </div>
 
 <div class="product-row row">
+  <% if(!idProvincia) { %>
     <h3 class="text-center">You may be interested in...</h3>
+  <% } else { %>
+    <h3 class="text-center">Products in <%= idProvincia %> </h3>
+  <% } %>
+
     <% products.forEach((product) => { %>
       <div class="col-sm-3 home-product-box">
         <img src="<%= product.imageUrl %>">
