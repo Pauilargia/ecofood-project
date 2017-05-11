@@ -15,13 +15,12 @@ router.use((req, res, next) => {
 });
 
 router.get('/profile', (req, res, next) => {
-  // res.render('users/profile');
+  //console.log("nombre: " + req.session.currentUser.name);
   Product
     .find({"producer": req.session.currentUser._id})
     .populate('producer')
     .exec( (err, products) => {
-      console.log(products)
-        res.render('users/profile', { products });
+      res.render('users/profile', { products });
     });
 });
 

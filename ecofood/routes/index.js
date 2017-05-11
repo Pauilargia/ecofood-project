@@ -7,14 +7,24 @@ const Product = require('../models/product');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  // res.render('index');
-  Product
-    .find({})
-    .populate('producer')
-    .exec( (err, products) => {
-      console.log(products);
+    Product
+      .find({})
+      .populate('producer')
+      .exec( (err, products) => {
         res.render('index', { products });
-    });
+      });
 });
+
+router.post('/provincia', (req, res, next) => {
+  const idProvincia = req.body.provincia;
+    Product
+      .find({location: idProvincia})
+      .populate('producer')
+      .exec( (err, products) => {
+        console.log(products);
+          res.render('index', {products});
+      });
+});
+
 
 module.exports = router;
