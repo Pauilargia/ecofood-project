@@ -43,8 +43,10 @@ a {
 }
 
 .tamañoImg{
-
+  width: 100px;
+  height: 100px;
 }
+
 
 #single-prod-img {
   width: 90%;
