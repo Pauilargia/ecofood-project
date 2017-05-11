@@ -14,7 +14,6 @@ const ProductSchema = new Schema ({
   deadline: Date,
   location: String,
   producer: { type: Schema.Types.ObjectId, ref: 'User' },
-  //producer: Date,
   description: String
 });
 
