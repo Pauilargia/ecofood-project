@@ -31,6 +31,7 @@ router.get('/products/single/:id', (req,res) =>{
   const productId = req.params.id;
   Product.findById(productId, (err, product) => {
     if (err) { return next(err); }
+    //{product: product} simpre hay que pasar un objeto no un stream por eso ponemos las {}
     res.render('products/single', {product: product});
   });
 });

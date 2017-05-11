@@ -18,6 +18,6 @@ const ProductSchema = new Schema ({
   description: String
 });
 
-
+//Product en verde es el nombre de la colección.
 const Product = mongoose.model('Product', ProductSchema);
 module.exports = Product;
