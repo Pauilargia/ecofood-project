@@ -1,4 +1,8 @@
 <h2> Your Profile </h2>
+<p>Name: <%= currentUserInfo.name %></p>
+<p>Username: <%= currentUserInfo.username %></p>
+<p>E-mail: <%= currentUserInfo.email %></p>
+<p>Location: <%= currentUserInfo.location %></p>
 
 <% if (currentUserInfo.isProducer) { %>
   <h3> You are a producer </h3>
