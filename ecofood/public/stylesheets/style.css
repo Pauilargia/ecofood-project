@@ -7,4 +7,19 @@ a {
   color: #00B7FF;
 }
 
-.
+/*Barra de navegacion*/
+.navbar-inverse {
+    background-color: #3c763d;
+    border-color: #00261C;
+  }
+
+.jumbotron {
+  height: 348px;
+  background-image: url(../img/cabcera.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.tamañoImg{
+  
+}
