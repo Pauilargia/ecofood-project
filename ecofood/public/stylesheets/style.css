@@ -7,4 +7,10 @@ a {
   color: #00B7FF;
 }
 
-.
+#single-prod-img {
+  width: 90%;
+}
+
+#prod-info p {
+  font-size: 1.3em;
+}

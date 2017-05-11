@@ -55,14 +55,11 @@ router.post('/products/:id/edit', upload.single('image'), (req,res, next) => {
   console.log(req.file);
   const updates = {
       name: req.body.name,
-      // imageUrl: "images/"+req.file.filename,
-      // imageUrlName: req.file.originalname,
       unit: req.body.unit,
       unitPrice: req.body.unitPrice,
       category: req.body.category,
       availableQty: req.body.availableQty,
       deadline: req.body.deadline,
-      location: req.body.location,
       description: req.body.description
    };
    console.log(updates);
@@ -88,7 +85,7 @@ router.post('/add', upload.single('image'), function(req, res, next) {
       category: req.body.category,
       availableQty: req.body.availableQty,
       deadline: req.body.deadline,
-      location: req.body.location,
+      location: req.session.currentUser.location,
       producer: req.session.currentUser._id,
       description: req.body.description
   };
