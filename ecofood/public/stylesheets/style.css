@@ -49,3 +49,8 @@ a {
 #prod-info p {
   font-size: 1.3em;
 }
+
+.product-row{
+   display: flex;
+   flex-wrap: wrap;
+}
