@@ -1,5 +1,3 @@
-
-
 body {
   padding: 20px;
   padding-top: 0px;
@@ -14,12 +12,10 @@ a {
 
 /*Barra de navegacion*/
 .navbar-inverse {
-  /*position: fixed;
-  width: auto;*/
   background-color: #3c763d;
   border-color: #00261C;
   margin: 0px;
-  }
+}
 
 .navbar-inverse .navbar-brand {
     color: #fff;
@@ -33,7 +29,6 @@ a {
     margin: 0px;
     color: #fff;
 }
-/*-------------------------------------*/
 
 .jumbotron {
   height: 390px;
@@ -47,12 +42,10 @@ a {
   height: 100px;
 }
 
-
 #single-prod-img {
   width: 90%;
 }
 
 #prod-info p {
   font-size: 1.3em;
-
 }

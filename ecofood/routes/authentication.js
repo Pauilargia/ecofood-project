@@ -2,7 +2,6 @@
 
 const express = require('express');
 const router  = express.Router();
-const passport = require('passport');
 const bcrypt = require('bcryptjs');
 
 const User = require('../models/user');
@@ -14,11 +13,6 @@ router.get('/signup', (req, res, next) => {
     errorMessage: ''
   });
 });
-
-// router.post('/signup', passport.authenticate('local-signup', {
-//   successRedirect : '/',
-//   failureRedirect : '/signup'
-// }));
 
 router.post('/signup', (req, res, next) => {
   const nameInput = req.body.name;
@@ -74,12 +68,6 @@ router.post('/signup', (req, res, next) => {
   });
 });
 
-//User Log Out
-// router.get('/logout', (req, res) => {
-//     req.logout();
-//     res.redirect('/');
-// });
-
 router.get('/logout', (req, res, next) => {
   if (!req.session.currentUser) {
     res.redirect('/');
@@ -91,7 +79,6 @@ router.get('/logout', (req, res, next) => {
       next(err);
       return;
     }
-
     res.redirect('/');
   });
 });
@@ -133,6 +120,5 @@ router.post('/login', (req, res, next) => {
     res.redirect('/');
   });
 });
-
 
 module.exports = router;

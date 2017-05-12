@@ -1,6 +1,4 @@
 /*jshint esversion: 6*/
-//sergio y Paula
-
 const express      = require('express');
 const path         = require('path');
 const favicon      = require('serve-favicon');
@@ -10,7 +8,6 @@ const bodyParser   = require('body-parser');
 const layouts      = require('express-ejs-layouts');
 const mongoose     = require('mongoose');
 const bcrypt       = require('bcryptjs');
-const passport     = require('passport');
 const session      = require('express-session');
 const MongoStore   = require('connect-mongo')(session);
 const multer       = require('multer');
@@ -48,7 +45,7 @@ app.use('/node_modules', express.static(path.join(__dirname, 'node_modules/')));
 
 // Configure passport authentication
 require('./config/authentication.js')(app);
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
     res.locals.user = req.user;
     next();
 });

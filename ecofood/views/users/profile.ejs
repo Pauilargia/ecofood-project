@@ -1,4 +1,5 @@
 <h2> Your Profile </h2>
+
 <p>Name: <%= currentUserInfo.name %></p>
 <p>Username: <%= currentUserInfo.username %></p>
 <p>E-mail: <%= currentUserInfo.email %></p>
@@ -7,30 +8,25 @@
 <% if (currentUserInfo.isProducer) { %>
   <h3> You are a producer </h3>
 
-  <p>
-    Your products:
-  </p>
+  <p> Your products: </p>
   <div class="product-row row">
-      <% products.forEach((product) => { %>
-        <div class="col-sm-3 home-product-box">
-          <img class = "tamañoImg" src="<%= product.imageUrl %>">
-          <div class="product-info-wrapper">
-            <a class="title" href="/products/single/<%= product._id %>">
-              <strong><%= product.name %></strong>
-            </a><br>
-            by <span class="light-text"><%= product.producer.username %></span><br>
-            <span class="light-text description"><%= product.description %></span>
-          </div>
-          <a href="/products/<%= product._id %>/edit/">Edit Product</a>
-          <a href="/products/<%= product._id %>/delete/">Delete Product</a>
+    <% products.forEach((product) => { %>
+      <div class="col-sm-3 home-product-box">
+        <img class = "tamañoImg" src="<%= product.imageUrl %>">
+        <div class="product-info-wrapper">
+          <a class="title" href="/products/single/<%= product._id %>"><strong><%= product.name %></strong></a><br>
+          by <span class="light-text"><%= product.producer.username %></span><br>
+          <span class="light-text description"><%= product.description %></span>
         </div>
-      <%  }) %>
-    </div>
+        <a href="/products/<%= product._id %>/edit/">Edit Product</a>
+        <a href="/products/<%= product._id %>/delete/">Delete Product</a>
+      </div>
+    <%  }) %>
+  </div>
 
   <a href="/add">Add new product</a>
 <% } else { %>
   <h3> Want to become a producer? </h3>
-
   <form action="/producers" method="post">
     <button> Click Here! </button>
   </form>

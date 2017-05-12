@@ -15,7 +15,6 @@ router.use((req, res, next) => {
 });
 
 router.get('/profile', (req, res, next) => {
-  //console.log("nombre: " + req.session.currentUser.name);
   Product
     .find({"producer": req.session.currentUser._id})
     .populate('producer')
@@ -35,9 +34,7 @@ router.post('/producers', (req, res, next) => {
       next(err);
       return;
     }
-
     req.session.currentUser = theUser;
-
     res.redirect('/profile');
   });
 });

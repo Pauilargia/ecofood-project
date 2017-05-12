@@ -29,16 +29,15 @@ var promisesArrayProducts = productsData.map(p => {
 
   return Promise.all(promises).then(user =>{
     p.producer = user[0]._id;
-    console.log(p.producer);
     const product = new Product(p);
     return product.save();
   }).then( product => {
-    // console.log("Created product!!");
+    console.log("Created product!!");
     return product;
   }).catch(e => console.log(e));
 });
 
 Promise.all(promisesArrayProducts).then(products => {
-  // console.log("ALL DONE");
+  console.log("ALL DONE");
   mongoose.connection.close();
 });

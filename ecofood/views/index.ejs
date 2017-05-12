@@ -1,7 +1,6 @@
-
 <div id="buscador">
   <form action="/provincia" method="post">
-  <p>Busca productos en tu provincia.  </p>
+    <p>Busca productos en tu provincia.  </p>
     <label for="provincia">Provincia:</label>
   	<select class="selectpicker" name="provincia" id="provincia" value="">
   		<option value="">provincia</option>
@@ -66,19 +65,19 @@
   <% if(idProvincia) { %>
     <h3 class="text-center">Products in <%= idProvincia %> </h3>
   <% } %>
-
-<div class="product-row row">
-<% products.forEach((product) => { %>
+  <div class="product-row row">
+  <% products.forEach((product) => { %>
     <div class="col-xs-18 col-sm-6 col-md-3">
       <div class="thumbnail">
         <img class = "tamañoImg" src="<%= product.imageUrl %>">
-          <div class="caption">
-              <h4><%= product.name %></h4>
-              <h4>Precio: <%= product.unitPrice %> € iva incluido</h4>
-              <div style="height: 50px; width: 300px; overflow-y: auto;"><%= product.description %></div>
-              <a href="/products/single/<%= product._id %>" class="btn btn-info btn-xs" role="button">Detalles</a>
+        <div class="caption">
+          <h4><%= product.name %></h4>
+          <h4>Precio: <%= product.unitPrice %> € iva incluido</h4>
+          <div style="height: 50px; width: 300px; overflow-y: auto;"><%= product.description %></div>
+            <a href="/products/single/<%= product._id %>" class="btn btn-info btn-xs" role="button">Detalles</a>
           </div>
+        </div>
       </div>
-    </div>
     <%  }) %>
+  </div>
 </div>

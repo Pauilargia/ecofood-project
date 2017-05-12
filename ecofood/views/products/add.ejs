@@ -1,57 +1,54 @@
 <form action="/add" method="post" enctype="multipart/form-data">
-<div class="col-md-3 col-md-offset-3">
+  <div class="col-md-3 col-md-offset-3">
     <div class="form-group">
-        <label for="name">Name</label>
-        <input class="form-control" type="text" id="name" name="name" value="">
+      <label for="name">Name</label>
+      <input class="form-control" type="text" id="name" name="name" value="">
     </div>
 
     <div class="form-group">
-        <label for="unit">Unit</label>
-        <select class="form-control" name="unit" id="unit">
-          <option value="kg">Kg</option>
-          <option value="litro">L</option>
-          <option value="unit">Unit</option>
-        </select>
+      <label for="unit">Unit</label>
+      <select class="form-control" name="unit" id="unit">
+        <option value="kg">Kg</option>
+        <option value="litro">L</option>
+        <option value="unit">Unit</option>
+      </select>
     </div>
 
     <div class="form-group">
-        <label for="unitPrice">UnitPrice</label>
-        <input class="form-control" type="Number" name="unitPrice" id="unitPrice" value="">
+      <label for="unitPrice">UnitPrice</label>
+      <input class="form-control" type="Number" name="unitPrice" id="unitPrice" value="">
     </div>
 
     <div class="form-group">
-        <label for="category">Category</label>
-        <select class="form-control" name="category" id="category">
-          <option value="Fruits">Fruits</option>
-          <option value="Vegetables">Vegetables</option>
-          <option value="Animal Products">Animal Products</option>
-        </select>
+      <label for="category">Category</label>
+      <select class="form-control" name="category" id="category">
+        <option value="Fruits">Fruits</option>
+        <option value="Vegetables">Vegetables</option>
+        <option value="Animal Products">Animal Products</option>
+      </select>
     </div>
-</div>
+  </div>
 
-<div class="col-md-3">
+  <div class="col-md-3">
     <div class="form-group">
-        <label for="availableQty">AvailableQty</label>
-        <input class="form-control" type="Number" name="availableQty" id="availableQty" value="">
-    </div>
-
-    <div class="form-group">
-        <label for="deadline">Deadline</label>
-        <input  class="form-control" type="Date" name="deadline" id="deadline" value="">
+      <label for="availableQty">AvailableQty</label>
+      <input class="form-control" type="Number" name="availableQty" id="availableQty" value="">
     </div>
 
     <div class="form-group">
-        <label for="description">Description</label>
-        <textarea class="form-control" type="text" name="description" id="description"></textarea>
+      <label for="deadline">Deadline</label>
+      <input  class="form-control" type="Date" name="deadline" id="deadline" value="">
     </div>
 
     <div class="form-group">
-        <label for="image-url">Seleccione foto</label>
-        <input class="btn btn-default" type="file" name="image">
+      <label for="description">Description</label>
+      <textarea class="form-control" type="text" name="description" id="description"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="image-url">Seleccione foto</label>
+      <input class="btn btn-default" type="file" name="image">
     </div>
     <button type="submit" class="btn btn-success">Create Product</button>
-</div>
-
-</div>
-
+  </div>
 </form>
