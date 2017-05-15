@@ -48,7 +48,7 @@ router.get('/products/:id/edit', (req,res, next) => {
 /* POST - EDIT PRODUCT */
 router.post('/products/:id/edit', upload.single('image'), (req,res, next) => {
   const productId = req.params.id;
-  const upddates = {
+  const updates = {
     name: req.body.name,
     unit: req.body.unit,
     unitPrice: req.body.unitPrice,
